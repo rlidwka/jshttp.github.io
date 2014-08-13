@@ -7,3 +7,9 @@
 .navbar.navbar {
   border-radius: 0;
 }
+a, th {
+  color: #eee;
+}
+body {
+  background-color: #4d4d4d;
+}
