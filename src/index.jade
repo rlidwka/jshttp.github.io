@@ -1,6 +1,6 @@
 
 mixin table(projects)
-  table.table.table-striped
+  table.table
     thead
       tr
         th(width='10%') Project
@@ -16,7 +16,7 @@ mixin row(project)
     td
       .markdown !{project.desc}
     td: +maintainer(project.maintainer)
-  tr
+  tr.module-desc
     td.blah(colspan=3, align='center')
       +badge-npm(project.npm)
       +badge-version(project.node)
