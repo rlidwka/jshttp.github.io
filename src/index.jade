@@ -3,9 +3,9 @@ mixin table(projects)
   table.table.table-striped
     thead
       tr
-        th Project Name
-        th Lead Maintainer
-        th(colspan=7)
+        th(width='10%') Project
+        th
+        th(width='10%') Maintainer
     tbody
       for project in projects
         +row(project)
@@ -13,14 +13,18 @@ mixin table(projects)
 mixin row(project)
   tr
     td: +project(project)
+    td
+      .markdown !{project.desc}
     td: +maintainer(project.maintainer)
-    td: +badge-npm(project.npm)
-    td: +badge-version(project.node)
-    td: +badge-travis(project.repo)
-    td: +badge-coverage(project.repo)
-    td: +badge-david(project.repo)
-    td: +badge-downloads(project.npm)
-    td: +badge-gittip(project.maintainer.github)
+  tr
+    td.blah(colspan=3, align='center')
+      +badge-npm(project.npm)
+      +badge-version(project.node)
+      +badge-travis(project.repo)
+      +badge-coverage(project.repo)
+      +badge-david(project.repo)
+      +badge-downloads(project.npm)
+      +badge-gittip(project.maintainer.github)
 
 mixin project(project)
   a(href='https://github.com/' + project.repo)= project.name
